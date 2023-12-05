@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -7,7 +6,6 @@ import { InjectedConnector } from 'wagmi/connectors/injected'
 import { BlockNumber } from './BlockNumber'
 
 function App() {
-  const [count, setCount] = useState(0)
   const { address, isConnected } = useAccount()
   const { connect } = useConnect({
     connector: new InjectedConnector(),
@@ -23,14 +21,12 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <h1>Viction</h1>
       <div className="card">
          {
             isConnected ? (
                 <div>
                     <p>Address: {address}</p>
-                    <p>Count: {count}</p>
-                    <button onClick={() => setCount(count + 1)}>Add</button>
                 </div>
               ) : (
                 <button onClick={() => connect()}>Connect</button>
@@ -38,6 +34,9 @@ function App() {
          }
       </div>
       <BlockNumber/>
+      <p className="read-the-docs">
+        Open console log to view pending transactions
+      </p>
     </>
   )
 }
