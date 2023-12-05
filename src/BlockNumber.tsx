@@ -2,7 +2,7 @@ import { useBlockNumber, useWatchPendingTransactions } from 'wagmi'
  
 export const BlockNumber = () =>  {
     useWatchPendingTransactions({
-        listener: (hashes) => console.log('Pending transactions', hashes),
+        listener: (hashes) => console.log('Pending transactions: ', hashes),
     })
     const { data = 0, isError, isLoading } = useBlockNumber()
     

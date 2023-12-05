@@ -1,6 +1,6 @@
-import { defineChain } from 'viem'
+import { Chain } from '@wagmi/core'
 
-export const vicTestNet = defineChain({
+export const vicTestNet = {
   id: 89,
   name: 'Viction Testnet',
   network: 'viction',
@@ -12,12 +12,14 @@ export const vicTestNet = defineChain({
   rpcUrls: {
     default: {
       http: ['https://rpc.testnet.tomochain.com'],
+      webSocket: ['wss://ws.testnet.tomochain.com']
     },
     public: {
       http: ['https://rpc.testnet.tomochain.com'],
+      webSocket: ['wss://ws.testnet.tomochain.com']
     },
   },
   blockExplorers: {
     default: { name: 'Explorer', url: 'https://www.vicscan.xyz' },
   },
-})
+} as const satisfies Chain
